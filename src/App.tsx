@@ -1,7 +1,8 @@
 import styles from './App.module.css';
-import poweredImage from './assets/powered.png'
-import { useState } from 'react'
-import { calculateImc, levels} from './helpers/imc'
+import poweredImage from './assets/powered.png';
+import { useState } from 'react';
+import { calculateImc, levels} from './helpers/imc';
+import { GridItem } from './components/GridItem';
 
 const App = () => {
   const [heightField, setHeightField] = useState<number>(0);
@@ -38,9 +39,13 @@ const App = () => {
             onChange={e => setWeightField(parseFloat(e.target.value))} />
             <button onClick={handleCalculateButton}>Calcular</button>
         </div>
-        <div className={styles.rightSide}>...</div>
+        <div className={styles.rightSide}>
+          <div className={styles.grid}>
+          {levels.map((item, key) => (
+            <GridItem key={key} item={item} />
+          ))}</div>
+        </div>
       </div>
     </div>
-  )
-}
+  )}
 export default App;
