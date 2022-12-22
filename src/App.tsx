@@ -1,6 +1,7 @@
 import styles from './App.module.css';
 import poweredImage from './assets/powered.png'
 import { useState } from 'react'
+import { calculateImc, levels} from './helpers/imc'
 
 const App = () => {
   const [heightField, setHeightField] = useState<number>(0);
